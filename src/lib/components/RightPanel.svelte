@@ -1,0 +1,1 @@
+<calcite-panel heading="Project information"></calcite-panel>
