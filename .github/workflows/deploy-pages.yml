@@ -38,6 +38,12 @@ jobs:
           : "${PUBLIC_ARCGIS_DATA_SERVICE_TOKEN:?Set the PUBLIC_ARCGIS_DATA_SERVICE_TOKEN repository variable}"
           npm run build -- --base "/${GITHUB_REPOSITORY#*/}/"
 
+      - name: Verify static assets
+        run: |
+          compgen -G 'dist/assets/maplibre-gl-worker-*.js' > /dev/null
+          compgen -G 'dist/assets/*.css' > /dev/null
+          [[ -f dist/calcite/assets/icon/launch16.json ]]
+
       - name: Disable Jekyll processing
         run: touch dist/.nojekyll
 
