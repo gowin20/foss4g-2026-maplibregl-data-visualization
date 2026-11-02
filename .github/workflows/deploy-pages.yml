@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        env:
+          PUBLIC_ARCGIS_ACCESS_TOKEN: ${{ vars.PUBLIC_ARCGIS_ACCESS_TOKEN }}
+          PUBLIC_ARCGIS_DATA_SERVICE_TOKEN: ${{ vars.PUBLIC_ARCGIS_DATA_SERVICE_TOKEN }}
+        run: |
+          : "${PUBLIC_ARCGIS_ACCESS_TOKEN:?Set the PUBLIC_ARCGIS_ACCESS_TOKEN repository variable}"
+          : "${PUBLIC_ARCGIS_DATA_SERVICE_TOKEN:?Set the PUBLIC_ARCGIS_DATA_SERVICE_TOKEN repository variable}"
+          npm run build -- --base "/${GITHUB_REPOSITORY#*/}/"
+
+      - name: Disable Jekyll processing
+        run: touch dist/.nojekyll
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true

@@ -92,6 +92,19 @@ npm run preview
 
 `check` runs Svelte and TypeScript diagnostics. `build` creates the production bundle, and `preview` serves that bundle locally. Hot reload may reset the selected dataset or other control state during development.
 
+## GitHub Pages Deployment
+
+The [deployment workflow](.github/workflows/deploy-pages.yml) follows the [AEC viewer deployment](https://github.com/gowin20/autodesk-and-arcgis-aec-viewer/blob/main/.github/workflows/deploy-pages.yml): pushes to `main` or manual runs build the app and publish the static output to the `gh-pages` branch.
+
+1. In **Settings > Secrets and variables > Actions > Variables**, add repository variables named `PUBLIC_ARCGIS_ACCESS_TOKEN` and `PUBLIC_ARCGIS_DATA_SERVICE_TOKEN` with the same browser-safe API keys used locally. Deployment fails if either variable is missing.
+2. Push the source, including the workflow, to `main`. The first successful workflow run creates or updates `gh-pages` with the contents of `dist`.
+3. In **Settings > Pages > Build and deployment**, choose **Deploy from a branch**, select **gh-pages** and **/ (root)**, then save. Do not select **GitHub Actions** as the Pages source; this workflow publishes to a branch.
+4. For later deployments, push to `main` or select **Actions > Deploy GitHub Pages > Run workflow** on `main`.
+
+The deployed app is available at <https://gowin20.github.io/foss4g-2026-data-visualization-with-maplibre/>. The workflow sets Vite's base path from the repository name so scripts, styles, the favicon, and Calcite assets load under that URL; local development keeps its default root path.
+
+Both API keys are embedded in the public bundle, not kept secret by GitHub Pages. Restrict their privileges and allowed referrers to the deployed site (and any local development URLs you need). Repository policy must allow the workflow's `contents: write` permission to publish to `gh-pages`.
+
 ## Layer Configuration
 
 - [src/lib/map/datasets.ts](src/lib/map/datasets.ts) registers the selectable datasets and their optional contextual layers.
