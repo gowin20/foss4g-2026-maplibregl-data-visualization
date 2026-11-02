@@ -4,7 +4,11 @@ An interactive mapping demo for FOSS4G 2026 that explores land use, housing, and
 
 The interface is built with Svelte, TypeScript, Vite, and Calcite Design System. Controls support switching datasets, changing FeatureLayer loading modes, inspecting tile boundaries, and setting an exact integer zoom level.
 
-**Presentation:** [foss4g-maplibre-data-visualization.pptx](foss4g-maplibre-data-visualization.pptx)
+**Live application:** https://gowen.dev/foss4g-2026-maplibregl-data-visualization/
+
+**Presentations:** 
+* [foss4g-maplibre-data-visualization.pptx](foss4g-maplibre-data-visualization.pptx)
+* [foss4g-optimized-maplibre-queries.pptx](foss4g-optimized-maplibre-queries.pptx)
 
 ## Study Area
 
@@ -130,6 +134,62 @@ The demo references live ArcGIS-hosted services. Source portals and data product
 The basemap is `arcgis/human-geography`, supplied through ArcGIS basemap services. Basemap and service credits are displayed in the map's attribution control; retain those credits when reusing the application or sharing map outputs.
 
 Consult the ArcGIS items and service metadata linked from the layer configurations for ownership, licensing, geographic coverage, and reference years. The repository contains visualization configurations and reference tables, not copies of the complete hosted datasets.
+
+### Service Citations
+
+The following inventory records the service URLs and ArcGIS item IDs configured in this project. Each unique source is listed once; multiple visualizations can share the same source. Item links open the ArcGIS item details, where publisher information, usage terms, and source credits should be consulted.
+
+1. **Sacramento City Boundary** [Feature layer]. The permanent city-outline reference.
+
+	Service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCityBoundary/FeatureServer/8>
+
+	Item ID: [`cd92834cd20945c390b38bd1cb7824c8`](https://www.arcgis.com/home/item.html?id=cd92834cd20945c390b38bd1cb7824c8).
+
+2. **Sacramento Parcels by Land Use** [Vector tile service]. Used for the parcel land-use visualization.
+
+	Service URL: <https://vectortileservices3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCityParcels_VTL/VectorTileServer>
+
+	Item ID: [`5de6825077ef4cdbbd2131fdd382587f`](https://www.arcgis.com/home/item.html?id=5de6825077ef4cdbbd2131fdd382587f).
+
+3. **Sacramento Census Blocks Enrichment** [Vector tile service]. Shared by the Tapestry segments, median household income, renters-versus-owners, and contextual census-block background views.
+
+	Service URL: <https://vectortileservices3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Sacramento_Census_Blocks_Enrichment_(VTL)/VectorTileServer>
+
+	Item ID: [`b3352861665e4e839900fc5d7920d6c8`](https://www.arcgis.com/home/item.html?id=b3352861665e4e839900fc5d7920d6c8).
+
+4. **Vacant Housing Units (2026)** [Feature layer]. Census-block points used for proportional vacancy circles.
+
+	Service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCensBlocks_Point/FeatureServer/26>
+
+	Parent service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCensBlocks_Point/FeatureServer>
+
+	Item ID: [`43c527113ab74bd58c9df3aadb1e6892`](https://www.arcgis.com/home/item.html?id=43c527113ab74bd58c9df3aadb1e6892).
+
+5. **Sacramento County Libraries** [Feature layer]. Library footprints rendered as representative point markers, retaining the `LANDMARK` attribute.
+
+	Service URL: <https://services1.arcgis.com/5NARefyPVtAeuJPU/ArcGIS/rest/services/Libraries/FeatureServer/0>
+
+	Item ID: [`408cfc9e87e5452ab71301054ae2807c`](https://www.arcgis.com/home/item.html?id=408cfc9e87e5452ab71301054ae2807c).
+
+6. **Parcels (Feature layer)** [Feature layer]. Parcel polygons used to demonstrate GeoJSON loading modes.
+
+	Service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCityParcels_Feature/FeatureServer/4>
+
+	Item ID: [`3caa0433c4b4401ab490e25f463a79e1`](https://www.arcgis.com/home/item.html?id=3caa0433c4b4401ab490e25f463a79e1).
+
+7. **Census Blocks (Feature layer)** [Feature layer]. Enriched census-block polygons used to demonstrate GeoJSON loading modes.
+
+	Service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Enriched_SacramentoCensusBlocks_Feature/FeatureServer/22>
+
+	Item ID: [`452d95e12d74482ba56e204aeca77025`](https://www.arcgis.com/home/item.html?id=452d95e12d74482ba56e204aeca77025).
+
+8. **Census Tracts (Feature layer)** [Feature layer]. Census-tract polygons used to demonstrate GeoJSON loading modes.
+
+	Service URL: <https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCensusTracts_Feature/FeatureServer/6>
+
+	Item ID: [`de8487c436ba4beabc7bdd216b3beeb0`](https://www.arcgis.com/home/item.html?id=de8487c436ba4beabc7bdd216b3beeb0).
+
+**Basemap citation:** Esri, **ArcGIS Human Geography** [Basemap style]. Style service URL: <https://basemapstyles-api.arcgis.com/arcgis/rest/services/styles/v2/styles/arcgis/human-geography>. Style ID: `arcgis/human-geography`. No ArcGIS item ID is configured for the basemap; the app requests it by style ID. Retain the contributor credits returned by the basemap service and displayed on the map.
 
 ## Data and Demo Notes
 

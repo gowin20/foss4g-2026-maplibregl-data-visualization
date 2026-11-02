@@ -13,6 +13,7 @@ dist-ssr
 coverage/
 *.local
 reference/
+.~lock*
 
 # Local environment variables
 .env
