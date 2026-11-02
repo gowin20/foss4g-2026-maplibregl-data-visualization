@@ -1,0 +1,18 @@
+{
+  "id": "census-blocks-context",
+  "itemId": "b3352861665e4e839900fc5d7920d6c8",
+  "url": "https://vectortileservices3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Sacramento_Census_Blocks_Enrichment_(VTL)/VectorTileServer",
+  "type": "vector-tile",
+  "style": {
+    "type": "fill",
+    "paint": {
+      "fill-color": "#ededed",
+      "fill-outline-color": "#a6a6a6"
+    }
+  },
+  "legend": {
+    "label": "Census Blocks",
+    "symbol": "fill",
+    "symbolLabel": "Census blocks"
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "itemId": "b3352861665e4e839900fc5d7920d6c8",
+  "url": "https://vectortileservices3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Sacramento_Census_Blocks_Enrichment_(VTL)/VectorTileServer",
+  "style": {
+    "paint": {
+      "fill-color": [
+        "match",
+        [
+          "coalesce",
+          [
+            "get",
+            "TapestryHouseholds_THHSCODE"
+          ],
+          ""
+        ],
+        [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6"
+        ],
+        "#219AD2",
+        [
+          "B1",
+          "B2",
+          "B3"
+        ],
+        "#00A6C7",
+        [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6"
+        ],
+        "#7773B6",
+        [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5"
+        ],
+        "#C371B4",
+        [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6"
+        ],
+        "#00BF3D",
+        [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "#85AF52",
+        [
+          "G1",
+          "G2",
+          "G3"
+        ],
+        "#009A81",
+        [
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ],
+        "#009D9D",
+        [
+          "I1",
+          "I2",
+          "I3",
+          "I4",
+          "I5",
+          "I6",
+          "I7"
+        ],
+        "#CAA729",
+        [
+          "J1",
+          "J2",
+          "J3",
+          "J4"
+        ],
+        "#AB9E37",
+        [
+          "K1",
+          "K2",
+          "K3",
+          "K4",
+          "K5",
+          "K6",
+          "K7",
+          "K8"
+        ],
+        "#C38218",
+        [
+          "L1",
+          "L2",
+          "L3"
+        ],
+        "#D67431",
+        "#E0E0E0"
+      ]
+    }
+  },
+  "popup": {
+    "fields": [
+      {
+        "field": "TapestryHouseholds_THHSCODE",
+        "label": "Tapestry segment",
+        "format": "legend-label"
+      }
+    ]
+  },
+  "legend": {
+    "label": "Esri Tapestry Segements (Census Blocks)",
+    "symbol": "fill",
+    "fallbackLabel": "Other / Unspecified",
+    "entryLabels": {
+      "A1": "A1 - Independent Cityscapes",
+      "A2": "A2 - City Commons",
+      "A3": "A3 - Social Security Set",
+      "A4": "A4 - Fresh Ambitions",
+      "A5": "A5 - Welcome Waves",
+      "A6": "A6 - Young and Restless",
+      "B1": "B1 - Dorms to Diplomas",
+      "B2": "B2 - College Towns",
+      "B3": "B3 - Military Proximity",
+      "C1": "C1 - Single Thrifties",
+      "C2": "C2 - Kids and Kin",
+      "C3": "C3 - Metro Fusion",
+      "C4": "C4 - Family Foundations",
+      "C5": "C5 - Diverse Horizons",
+      "C6": "C6 - Moderate Metros",
+      "D1": "D1 - Emerging Hub",
+      "D2": "D2 - Trendsetters",
+      "D3": "D3 - Modern Minds",
+      "D4": "D4 - Metro Renters",
+      "D5": "D5 - Laptops and Lattes",
+      "E1": "E1 - Modest-Income Homes",
+      "E2": "E2 - Southwestern Families",
+      "E3": "E3 - Hometown Charm",
+      "E4": "E4 - Mobile Meadows",
+      "E5": "E5 - Rural Versatility",
+      "E6": "E6 - Family Bonds",
+      "F1": "F1 - High-Rise Renters",
+      "F2": "F2 - Family Extensions",
+      "F3": "F3 - Downtown Melting Pot",
+      "F4": "F4 - City Strivers",
+      "F5": "F5 - Uptown Lights",
+      "G1": "G1 - Shared Roots",
+      "G2": "G2 - Up-and-Coming Families",
+      "G3": "G3 - Generational Ties",
+      "H1": "H1 - Flourishing Families",
+      "H2": "H2 - Boomburbs",
+      "H3": "H3 - Neighborhood Spirit",
+      "H4": "H4 - Urban Chic",
+      "I1": "I1 - Small Town Sincerity",
+      "I2": "I2 - Scenic Byways",
+      "I3": "I3 - Heartland Communities",
+      "I4": "I4 - Rooted Rural",
+      "I5": "I5 - Rural Resort Dwellers",
+      "I6": "I6 - Southern Satellites",
+      "I7": "I7 - Country Charm",
+      "J1": "J1 - Senior Escapes",
+      "J2": "J2 - The Elders",
+      "J3": "J3 - Retirement Communities",
+      "J4": "J4 - Silver and Gold",
+      "K1": "K1 - Legacy Hills",
+      "K2": "K2 - Middle Ground",
+      "K3": "K3 - Loyal Locals",
+      "K4": "K4 - Classic Comfort",
+      "K5": "K5 - Dreambelt",
+      "K6": "K6 - City Greens",
+      "K7": "K7 - Room to Roam",
+      "K8": "K8 - Burbs and Beyond",
+      "L1": "L1 - Savvy Suburbanites",
+      "L2": "L2 - Professional Pride",
+      "L3": "L3 - Top Tier"
+    },
+    "groups": [
+      {
+        "label": "A - Urban Threads",
+        "entries": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6"
+        ]
+      },
+      {
+        "label": "B - Books and Boots",
+        "entries": [
+          "B1",
+          "B2",
+          "B3"
+        ]
+      },
+      {
+        "label": "C - Metro Vibes",
+        "entries": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6"
+        ]
+      },
+      {
+        "label": "D - Tech Trailblazers",
+        "entries": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5"
+        ]
+      },
+      {
+        "label": "E - Community Connections",
+        "entries": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6"
+        ]
+      },
+      {
+        "label": "F - Urban Harmony",
+        "entries": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ]
+      },
+      {
+        "label": "G - Family Fabric",
+        "entries": [
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      {
+        "label": "H - Family Prosperity",
+        "entries": [
+          "H1",
+          "H2",
+          "H3",
+          "H4"
+        ]
+      },
+      {
+        "label": "I - Countryscapes",
+        "entries": [
+          "I1",
+          "I2",
+          "I3",
+          "I4",
+          "I5",
+          "I6",
+          "I7"
+        ]
+      },
+      {
+        "label": "J - Mature Reflections",
+        "entries": [
+          "J1",
+          "J2",
+          "J3",
+          "J4"
+        ]
+      },
+      {
+        "label": "K - Suburban Shine",
+        "entries": [
+          "K1",
+          "K2",
+          "K3",
+          "K4",
+          "K5",
+          "K6",
+          "K7",
+          "K8"
+        ]
+      },
+      {
+        "label": "L - Premier Estates",
+        "entries": [
+          "L1",
+          "L2",
+          "L3"
+        ]
+      }
+    ]
+  }
+}

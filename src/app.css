@@ -53,7 +53,7 @@ calcite-shell-panel {
   --calcite-shell-panel-width: clamp(13rem, 18vw, 20rem);
 }
 
-calcite-shell-panel > calcite-panel {
+calcite-shell-panel>calcite-panel {
   height: 100%;
 }
 
@@ -68,4 +68,79 @@ calcite-shell-panel > calcite-panel {
 .map-container {
   position: absolute;
   inset: 0;
+}
+
+.dataset-popup {
+  font-family: var(--calcite-sans-family);
+}
+
+.dataset-popup .maplibregl-popup-content {
+  padding: 1rem;
+  color: var(--calcite-color-text-1);
+  background: var(--calcite-color-foreground-1);
+  border: 1px solid var(--calcite-color-border-2);
+  border-radius: 4px;
+}
+
+.dataset-popup .maplibregl-popup-close-button {
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--calcite-color-text-1);
+  font-size: 1.25rem;
+}
+
+.dataset-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.dataset-popup.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.dataset-popup.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: var(--calcite-color-foreground-1);
+}
+
+.dataset-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.dataset-popup.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.dataset-popup.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: var(--calcite-color-foreground-1);
+}
+
+.dataset-popup.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--calcite-color-foreground-1);
+}
+
+.dataset-popup.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--calcite-color-foreground-1);
+}
+
+.feature-popup {
+  max-height: min(20rem, calc(100dvh - 8rem));
+  overflow-y: auto;
+}
+
+.feature-popup__title {
+  margin: 0 1.5rem 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.feature-popup__fields {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.feature-popup__fields dt {
+  color: var(--calcite-color-text-2);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.feature-popup__fields dd {
+  margin: 0.125rem 0 0;
+  color: var(--calcite-color-text-1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }

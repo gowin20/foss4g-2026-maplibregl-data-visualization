@@ -1,0 +1,19 @@
+{
+  "id": "parcels-feature",
+  "itemId": "3caa0433c4b4401ab490e25f463a79e1",
+  "url": "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCityParcels_Feature/FeatureServer/4",
+  "type": "feature",
+  "style": {
+    "type": "fill",
+    "paint": {
+      "fill-color": "#007ac2",
+      "fill-opacity": 0.4,
+      "fill-outline-color": "#007ac2"
+    }
+  },
+  "legend": {
+    "label": "Parcels (Feature layer)",
+    "symbol": "fill",
+    "symbolLabel": "Parcels"
+  }
+}

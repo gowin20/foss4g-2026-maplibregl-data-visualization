@@ -1,11 +1,19 @@
 <script lang="ts">
-  import AppHeader from './AppHeader.svelte'
-  import LeftPanel from './LeftPanel.svelte'
-  import RightPanel from './RightPanel.svelte'
-  import ViewerCanvas from './ViewerCanvas.svelte'
+  import AppHeader from "./AppHeader.svelte";
+  import LeftPanel from "./LeftPanel.svelte";
+  import RightPanel from "./RightPanel.svelte";
+  import ViewerCanvas from "./ViewerCanvas.svelte";
+  import type { LegendLayer } from "../map/legend";
+  import { DEFAULT_DATASET_ID } from "../map/datasets";
+  import type { FeatureLayerLoadingMode } from "../map/feature-layer";
 
-  let leftCollapsed = $state(true)
-  let rightCollapsed = $state(true)
+  let leftCollapsed = $state(false);
+  let rightCollapsed = $state(false);
+  let legendLayers = $state<LegendLayer[]>([]);
+  let selectedDatasetId = $state<string | null>(DEFAULT_DATASET_ID);
+  let showTileBoundaries = $state(false);
+  let featureLayerLoadingMode = $state<FeatureLayerLoadingMode>("default");
+  let zoomRequest = $state<{ value: number } | null>(null);
 </script>
 
 <calcite-shell>
@@ -19,15 +27,39 @@
       <calcite-action
         role="button"
         tabindex="0"
-        icon={leftCollapsed ? 'chevrons-right' : 'chevrons-left'}
-        text={leftCollapsed ? 'Expand controls' : 'Collapse controls'}
+        icon={leftCollapsed ? "chevrons-right" : "chevrons-left"}
+        text={leftCollapsed ? "Expand controls" : "Collapse controls"}
         onclick={() => (leftCollapsed = !leftCollapsed)}
       ></calcite-action>
     </calcite-action-bar>
-    <LeftPanel />
+    <LeftPanel
+      {selectedDatasetId}
+      {showTileBoundaries}
+      {featureLayerLoadingMode}
+      onDatasetChange={(datasetId) => {
+        selectedDatasetId = datasetId;
+      }}
+      onTileBoundariesChange={(checked) => {
+        showTileBoundaries = checked;
+      }}
+      onFeatureLayerLoadingModeChange={(mode) => {
+        featureLayerLoadingMode = mode;
+      }}
+      onZoomConfirm={(zoom) => {
+        zoomRequest = { value: zoom };
+      }}
+    />
   </calcite-shell-panel>
 
-  <ViewerCanvas />
+  <ViewerCanvas
+    {selectedDatasetId}
+    {showTileBoundaries}
+    {featureLayerLoadingMode}
+    {zoomRequest}
+    onLegendChange={(layers) => {
+      legendLayers = layers;
+    }}
+  />
 
   <calcite-shell-panel slot="panel-end" width="m" collapsed={rightCollapsed}>
     <calcite-action-bar slot="action-bar" expand-toggle-disabled>
@@ -35,12 +67,12 @@
       <calcite-action
         role="button"
         tabindex="0"
-        icon={rightCollapsed ? 'chevrons-left' : 'chevrons-right'}
-        text={rightCollapsed ? 'Expand project information' : 'Collapse project information'}
+        icon={rightCollapsed ? "chevrons-left" : "chevrons-right"}
+        text={rightCollapsed ? "Expand legend" : "Collapse legend"}
         onclick={() => (rightCollapsed = !rightCollapsed)}
       ></calcite-action>
     </calcite-action-bar>
-    <RightPanel />
+    <RightPanel layers={legendLayers} />
   </calcite-shell-panel>
 </calcite-shell>
 

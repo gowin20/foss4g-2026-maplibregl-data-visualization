@@ -1,0 +1,400 @@
+{
+  "itemId": "5de6825077ef4cdbbd2131fdd382587f",
+  "url": "https://vectortileservices3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/SacramentoCityParcels_VTL/VectorTileServer",
+  "style": {
+    "paint": {
+      "fill-color": [
+        "match",
+        [
+          "coalesce",
+          [
+            "get",
+            "LU_SPECIF"
+          ],
+          ""
+        ],
+        "",
+        [
+          "match",
+          [
+            "coalesce",
+            [
+              "get",
+              "LU_GENERAL"
+            ],
+            ""
+          ],
+          "Agricultural",
+          "#A9A852",
+          "Miscellaneous",
+          "#D9CFC2",
+          "Vacant",
+          "#FFFFFF",
+          "#E0E0E0"
+        ],
+        "Acute Care Hospital",
+        "#2F7FA8",
+        "Cemetery / Mortuary",
+        "#8FB3AC",
+        "Day Nursery",
+        "#BFD8E8",
+        "Residential Care Facility",
+        "#86B8D3",
+        "Retirement Home",
+        "#A3C6DB",
+        "Skilled Nursing Facility",
+        "#5C9FC2",
+        "Church",
+        "#AFC4EE",
+        "Private School",
+        "#93AEE6",
+        "Private Social Service Agency",
+        "#D2D2F2",
+        "Airport (Private)",
+        "#8E86A8",
+        "Building Materials",
+        "#A673C4",
+        "Common Area",
+        [
+          "match",
+          [
+            "coalesce",
+            [
+              "get",
+              "LU_GENERAL"
+            ],
+            ""
+          ],
+          "Industrial",
+          "#F2E8F6",
+          "Office",
+          "#FDE3D6",
+          "Residential",
+          "#FFF8CC",
+          "Retail / Commercial",
+          "#FBD9D5",
+          "#E0E0E0"
+        ],
+        "Food Processing",
+        "#9460B4",
+        "Heavy",
+        "#5B3A8A",
+        "Light",
+        "#CFA8E3",
+        "Mini-storage",
+        "#D6C0E2",
+        "Mining",
+        "#6E4F7E",
+        "Multi-tenant",
+        "#E3CBEF",
+        "Railroad Spur",
+        "#787090",
+        "Truck / Transit Terminal",
+        "#9E8AB8",
+        "Warehouse",
+        "#BC92D6",
+        "Bridal Path / Hiking Trail",
+        "#A2D98E",
+        "Drainage Ditch",
+        "#9ED9E0",
+        "Flood Plain",
+        "#4E9A6A",
+        "Irrigation",
+        "#C2E8EC",
+        "Levee",
+        "#B0A48A",
+        "Park / Greenbelt",
+        "#6CBF5C",
+        "Private Road",
+        "#B3B3B3",
+        "Too Small / Too Irregular",
+        "#EAE3D2",
+        "Utility / Power / Sewer",
+        "#6E6E6E",
+        "Walkway",
+        "#C4C4C4",
+        "Well / Pump",
+        "#7D8C99",
+        "Bank",
+        "#EA8761",
+        "Broadcasting / Radio / TV",
+        "#C4683F",
+        "Large Single Tenant",
+        "#DE7450",
+        "Medical / Dental",
+        "#F8B596",
+        "Office (General)",
+        "#F59B78",
+        "Post Office",
+        "#D9876C",
+        "Residential Conversion",
+        [
+          "match",
+          [
+            "coalesce",
+            [
+              "get",
+              "LU_GENERAL"
+            ],
+            ""
+          ],
+          "Office",
+          "#FBC9AE",
+          "Residential",
+          "#F9E07A",
+          "#E0E0E0"
+        ],
+        "Savings & Loan",
+        "#EF9470",
+        "Veterinarian",
+        "#F3A888",
+        "City",
+        "#5A86D6",
+        "County",
+        "#3D6CC9",
+        "Federal",
+        "#1F3F8A",
+        "Public School",
+        "#4E9AD6",
+        "SBE Property",
+        "#8C8C8C",
+        "Special District",
+        "#7090C8",
+        "State",
+        "#2A55B0",
+        "Bowling",
+        "#B4D676",
+        "Golf Course",
+        "#93B87E",
+        "Marina",
+        "#6FBF9E",
+        "Private Club",
+        "#BEDFA2",
+        "Race Track",
+        "#8FA86E",
+        "Skating",
+        "#D6EBB0",
+        "Sport Court / Field / Stadium",
+        "#9CC45E",
+        "Theater",
+        "#C9E38F",
+        "Bed & Breakfast",
+        "#F9C6DC",
+        "Boarding House",
+        "#D8B07A",
+        "Court",
+        "#EFC861",
+        "Four Family",
+        "#E6A532",
+        "Fraternity / Sorority House",
+        "#E6C796",
+        "High Rise Apartment",
+        "#8C5A2B",
+        "Hotel",
+        "#E06A9F",
+        "Low Rise Apartment",
+        "#D4862A",
+        "Mobile Home",
+        "#FFF6A8",
+        "Mobile Home Park",
+        "#E3DB8E",
+        "Motel",
+        "#F49AC1",
+        "Rooming House",
+        "#C99A62",
+        "Single Family",
+        "#FFF05A",
+        "Three Family",
+        "#EDB93C",
+        "Two Family",
+        "#F5D547",
+        "Advertising",
+        "#D9928C",
+        "Auction Yard",
+        "#B8605A",
+        "Large Retail",
+        "#9E1B22",
+        "Nursery",
+        "#F5AFA6",
+        "Restaurant",
+        "#E8554A",
+        "Shopping Center",
+        "#C8282A",
+        "Small Retail",
+        "#F07167",
+        "Store / Office Combo",
+        "#EF7A66",
+        "Vehicle Oriented",
+        "#D9502E",
+        "#E0E0E0"
+      ]
+    }
+  },
+  "popup": {
+    "fields": [
+      {
+        "field": "LU_SPECIF",
+        "label": "Specific land use"
+      },
+      {
+        "field": "LU_GENERAL",
+        "label": "General land use"
+      }
+    ]
+  },
+  "legend": {
+    "label": "Sacramento Parcels by Land Use",
+    "symbol": "fill",
+    "fallbackLabel": "Other / Unspecified",
+    "groups": [
+      {
+        "label": "Agricultural",
+        "entries": [
+          "Agricultural"
+        ]
+      },
+      {
+        "label": "Care / Health",
+        "entries": [
+          "Acute Care Hospital",
+          "Cemetery / Mortuary",
+          "Day Nursery",
+          "Residential Care Facility",
+          "Retirement Home",
+          "Skilled Nursing Facility"
+        ]
+      },
+      {
+        "label": "Church / Welfare",
+        "entries": [
+          "Church",
+          "Private School",
+          "Private Social Service Agency"
+        ]
+      },
+      {
+        "label": "Industrial",
+        "entries": [
+          "Airport (Private)",
+          "Building Materials",
+          "Common Area (Industrial)",
+          "Food Processing",
+          "Heavy",
+          "Light",
+          "Mini-storage",
+          "Mining",
+          "Multi-tenant",
+          "Railroad Spur",
+          "Truck / Transit Terminal",
+          "Warehouse"
+        ]
+      },
+      {
+        "label": "Miscellaneous",
+        "entries": [
+          "Miscellaneous",
+          "Bridal Path / Hiking Trail",
+          "Drainage Ditch",
+          "Flood Plain",
+          "Irrigation",
+          "Levee",
+          "Park / Greenbelt",
+          "Private Road",
+          "Too Small / Too Irregular",
+          "Utility / Power / Sewer",
+          "Walkway",
+          "Well / Pump"
+        ]
+      },
+      {
+        "label": "Office",
+        "entries": [
+          "Bank",
+          "Broadcasting / Radio / TV",
+          "Common Area (Office)",
+          "Large Single Tenant",
+          "Medical / Dental",
+          "Office (General)",
+          "Post Office",
+          "Residential Conversion (Office)",
+          "Savings & Loan",
+          "Veterinarian"
+        ]
+      },
+      {
+        "label": "Public / Utilities",
+        "entries": [
+          "City",
+          "County",
+          "Federal",
+          "Public School",
+          "SBE Property",
+          "Special District",
+          "State"
+        ]
+      },
+      {
+        "label": "Recreational",
+        "entries": [
+          "Bowling",
+          "Golf Course",
+          "Marina",
+          "Private Club",
+          "Race Track",
+          "Skating",
+          "Sport Court / Field / Stadium",
+          "Theater"
+        ]
+      },
+      {
+        "label": "Residential",
+        "entries": [
+          "Bed & Breakfast",
+          "Boarding House",
+          "Common Area (Residential)",
+          "Court",
+          "Four Family",
+          "Fraternity / Sorority House",
+          "High Rise Apartment",
+          "Hotel",
+          "Low Rise Apartment",
+          "Mobile Home",
+          "Mobile Home Park",
+          "Motel",
+          "Residential Conversion (Residential)",
+          "Rooming House",
+          "Single Family",
+          "Three Family",
+          "Two Family"
+        ]
+      },
+      {
+        "label": "Retail / Commercial",
+        "entries": [
+          "Advertising",
+          "Auction Yard",
+          "Common Area (Retail / Commercial)",
+          "Large Retail",
+          "Nursery",
+          "Restaurant",
+          "Shopping Center",
+          "Small Retail",
+          "Store / Office Combo",
+          "Vehicle Oriented"
+        ]
+      },
+      {
+        "label": "Vacant",
+        "entries": [
+          "Vacant"
+        ]
+      },
+      {
+        "label": "Other / Unspecified",
+        "entries": [
+          "Other / Unspecified"
+        ]
+      }
+    ]
+  }
+}
