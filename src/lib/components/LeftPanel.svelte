@@ -10,6 +10,7 @@
     featureLayerLoadingMode = "default",
     onFeatureLayerLoadingModeChange,
     onZoomConfirm,
+    onViewStyleJson,
   }: {
     selectedDatasetId: string | null;
     onDatasetChange: (datasetId: string | null) => void;
@@ -18,6 +19,7 @@
     featureLayerLoadingMode?: FeatureLayerLoadingMode;
     onFeatureLayerLoadingModeChange: (mode: FeatureLayerLoadingMode) => void;
     onZoomConfirm: (zoom: number) => void;
+    onViewStyleJson: () => void;
   } = $props();
 
   let zoomValue = $state("");
@@ -53,6 +55,12 @@
   const handleZoomConfirm = (event: SubmitEvent) => {
     event.preventDefault();
     if (validZoom) onZoomConfirm(zoomLevel);
+  };
+
+  const attachStyleButton = (element: HTMLElement) => {
+    const handleClick = () => onViewStyleJson();
+    element.addEventListener("click", handleClick);
+    return () => element.removeEventListener("click", handleClick);
   };
 </script>
 
@@ -124,6 +132,9 @@
       checked={showTileBoundaries}
       oncalciteCheckboxChange={handleTileBoundariesChange}
     ></calcite-checkbox>
+    <calcite-button icon-start="code" {@attach attachStyleButton}
+      >View style JSON</calcite-button
+    >
   </div>
 </calcite-panel>
 

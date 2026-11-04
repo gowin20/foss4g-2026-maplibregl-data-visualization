@@ -3,6 +3,8 @@
   import LeftPanel from "./LeftPanel.svelte";
   import RightPanel from "./RightPanel.svelte";
   import ViewerCanvas from "./ViewerCanvas.svelte";
+  import StyleJsonViewer from "./StyleJsonViewer.svelte";
+  import type { StyleSpecification } from "maplibre-gl";
   import type { LegendLayer } from "../map/legend";
   import { DEFAULT_DATASET_ID } from "../map/datasets";
   import type { FeatureLayerLoadingMode } from "../map/feature-layer";
@@ -14,6 +16,16 @@
   let showTileBoundaries = $state(false);
   let featureLayerLoadingMode = $state<FeatureLayerLoadingMode>("default");
   let zoomRequest = $state<{ value: number } | null>(null);
+  let styleRequest = $state(0);
+  let mapStyle = $state.raw<StyleSpecification | null>(null);
+
+  const handleStyleSnapshot = (style: StyleSpecification) => {
+    mapStyle = style;
+  };
+
+  const closeStyleViewer = () => {
+    mapStyle = null;
+  };
 </script>
 
 <calcite-shell>
@@ -48,6 +60,9 @@
       onZoomConfirm={(zoom) => {
         zoomRequest = { value: zoom };
       }}
+      onViewStyleJson={() => {
+        styleRequest += 1;
+      }}
     />
   </calcite-shell-panel>
 
@@ -56,6 +71,8 @@
     {showTileBoundaries}
     {featureLayerLoadingMode}
     {zoomRequest}
+    {styleRequest}
+    onStyleSnapshot={handleStyleSnapshot}
     onLegendChange={(layers) => {
       legendLayers = layers;
     }}
@@ -74,6 +91,12 @@
     </calcite-action-bar>
     <RightPanel layers={legendLayers} />
   </calcite-shell-panel>
+
+  {#if mapStyle}
+    <div slot="dialogs">
+      <StyleJsonViewer style={mapStyle} onclose={closeStyleViewer} />
+    </div>
+  {/if}
 </calcite-shell>
 
 <style>

@@ -4,18 +4,23 @@
   import { DEFAULT_DATASET_ID } from "../map/datasets";
   import type { LegendLayer } from "../map/legend";
   import type { FeatureLayerLoadingMode } from "../map/feature-layer";
+  import type { StyleSpecification } from "maplibre-gl";
 
   let {
     selectedDatasetId = DEFAULT_DATASET_ID,
     showTileBoundaries = false,
     featureLayerLoadingMode = "default",
     zoomRequest = null,
+    styleRequest = 0,
+    onStyleSnapshot,
     onLegendChange,
   }: {
     selectedDatasetId?: string | null;
     showTileBoundaries?: boolean;
     featureLayerLoadingMode?: FeatureLayerLoadingMode;
     zoomRequest?: { value: number } | null;
+    styleRequest?: number;
+    onStyleSnapshot?: (style: StyleSpecification) => void;
     onLegendChange?: (layers: LegendLayer[]) => void;
   } = $props();
 
@@ -39,6 +44,25 @@
   $effect(() => {
     if (mapController && zoomRequest) {
       mapController.map.setZoom(zoomRequest.value);
+    }
+  });
+
+  $effect(() => {
+    if (!mapController || styleRequest === 0) return;
+
+    const map = mapController.map;
+    const captureStyle = () => {
+      const style = map.getStyle();
+      if (style) onStyleSnapshot?.(style);
+    };
+
+    if (map.getStyle()) {
+      captureStyle();
+    } else {
+      map.once("styledata", captureStyle);
+      return () => {
+        map.off("styledata", captureStyle);
+      };
     }
   });
 
